@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        use: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Use NodeJS
-        use: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with: 
           node-version: "12.x"
 
