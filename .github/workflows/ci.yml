@@ -27,7 +27,7 @@ jobs:
         run: npm run test -- --coverage
         env:
           CI: true
-      
+
       - name: Create release
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: npx semantic-release
