@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <p>
-        Random text
+        Random text ye
       </p>
 
       <header className="App-header">
