@@ -34,7 +34,7 @@ jobs:
     needs: get-next-version
     steps:
       - name: Print next version
-        run: echo "The next version is ${{ needs.get-next-version.outputs.version }}"
+        run: echo "v${{ needs.get-next-version.outputs.version }} (${{ github.sha }})"
 
       - name: Checkout branch
         uses: actions/checkout@v2
