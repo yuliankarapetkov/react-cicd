@@ -37,7 +37,7 @@ jobs:
         run: echo "APP_CURRENT_VERSION=$(npm pkg get version)" >> $GITHUB_ENV
 
       - name: Print current version
-        run: echo " version is $APP_CURRENT_VERSION"
+        run: echo $APP_CURRENT_VERSION
 
       # - name: Print next version
       #   run: echo "v${{ needs.get-next-version.outputs.version }} (${{ github.sha }})"
