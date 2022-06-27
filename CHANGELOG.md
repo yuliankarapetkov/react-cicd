@@ -1,3 +1,10 @@
+## [1.9.6](https://github.com/yuliankarapetkov/react-cicd/compare/v1.9.5...v1.9.6) (2022-06-27)
+
+
+### Bug Fixes
+
+* print commit hash ([39ff842](https://github.com/yuliankarapetkov/react-cicd/commit/39ff842481824879307d749ad87a194cfe084293))
+
 ## [1.9.5](https://github.com/yuliankarapetkov/react-cicd/compare/v1.9.4...v1.9.5) (2022-06-27)
 
 
