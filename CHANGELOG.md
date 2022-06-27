@@ -1,3 +1,11 @@
+## [1.9.5](https://github.com/yuliankarapetkov/react-cicd/compare/v1.9.4...v1.9.5) (2022-06-27)
+
+
+### Bug Fixes
+
+* print next version ([096779c](https://github.com/yuliankarapetkov/react-cicd/commit/096779c1de56646b498d0820398fb8f4cb2998a9))
+* syntax error in YML ([1a2c4d5](https://github.com/yuliankarapetkov/react-cicd/commit/1a2c4d5a84bf5f2054cbf28209e81969cc8edcc7))
+
 ## [1.9.4](https://github.com/yuliankarapetkov/react-cicd/compare/v1.9.3...v1.9.4) (2022-06-27)
 
 
