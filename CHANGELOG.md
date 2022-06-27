@@ -1,3 +1,10 @@
+## [1.9.4](https://github.com/yuliankarapetkov/react-cicd/compare/v1.9.3...v1.9.4) (2022-06-27)
+
+
+### Bug Fixes
+
+* add package.json to git plugin ([15b5e59](https://github.com/yuliankarapetkov/react-cicd/commit/15b5e5908f2477cc2748f2867e7e292ecab5e018))
+
 ## [1.9.3](https://github.com/yuliankarapetkov/react-cicd/compare/v1.9.2...v1.9.3) (2022-06-27)
 
 
