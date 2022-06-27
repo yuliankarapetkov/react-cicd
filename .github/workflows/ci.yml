@@ -9,7 +9,7 @@ jobs:
   get-next-version:
     runs-on: ubuntu-latest
     steps:
-       - name: Checkout branch
+      - name: Checkout branch
         uses: actions/checkout@v2
 
       - name: Setup Node version (16.x)
