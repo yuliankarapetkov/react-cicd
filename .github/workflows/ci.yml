@@ -23,6 +23,11 @@ jobs:
       - name: Print current version
         run: echo $APP_CURRENT_VERSION
 
+      - name: Print version via Node.js
+        run: |
+          node
+          console.log(${{ APP_CURRENT_VERSION }})
+
     #   - name: Install dependencies
     #     run: npm ci
 
