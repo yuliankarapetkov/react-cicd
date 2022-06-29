@@ -34,6 +34,9 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Print outputs
+        run: echo ${{ join(steps.run_tests.outputs.*, '\n') }}
 
   # post-message:
   #   runs-on: ubuntu-latest
