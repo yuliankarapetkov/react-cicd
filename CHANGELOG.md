@@ -1,3 +1,21 @@
+# [1.10.0](https://github.com/yuliankarapetkov/react-cicd/compare/v1.9.7...v1.10.0) (2022-06-29)
+
+
+### Bug Fixes
+
+* test ([560d021](https://github.com/yuliankarapetkov/react-cicd/commit/560d0217518629223eef09167c1a57907b3f3d91))
+* ye ([f90d8e0](https://github.com/yuliankarapetkov/react-cicd/commit/f90d8e0a76fa08a168822acb7f48f1f4b4e4bd40))
+* ye ye ([4b0846d](https://github.com/yuliankarapetkov/react-cicd/commit/4b0846d395d2532f48cd41ac9a245be0ef758ba9))
+
+
+### Features
+
+* ye ([4fe2f20](https://github.com/yuliankarapetkov/react-cicd/commit/4fe2f20fdfbe2a5bdc168f2214b9d6501a6fd7d9))
+* ye ([ebbfabf](https://github.com/yuliankarapetkov/react-cicd/commit/ebbfabf94a99938453fd2a2cd36a48a5d65072ff))
+* ye ([9a92938](https://github.com/yuliankarapetkov/react-cicd/commit/9a92938771a2e5f4a291aa55d394e9e0eccd8ea8))
+* ye ([ae6f441](https://github.com/yuliankarapetkov/react-cicd/commit/ae6f4410b5c8db3106419c8a75c841d6bd49cb7f))
+* ye ye ([3f3fbd9](https://github.com/yuliankarapetkov/react-cicd/commit/3f3fbd98b57b16fbc9744a8f6c11435c7a644c4c))
+
 ## [1.9.7](https://github.com/yuliankarapetkov/react-cicd/compare/v1.9.6...v1.9.7) (2022-06-28)
 
 
