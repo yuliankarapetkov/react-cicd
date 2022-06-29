@@ -47,7 +47,7 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
         with:
-          args: '{\"channel\":\"random\",\"text\":\"Hello world\"}'
+          args: '{\"channel\":\"random\",\"text\":\"Hello world!\"}'
 
       - name: Send message to Slack
         uses: "Ilshidur/action-slack@2.1.0"
