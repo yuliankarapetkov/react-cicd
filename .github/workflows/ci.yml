@@ -42,14 +42,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Send message to Slack
-        uses: pullreminders/slack-action@v1.0.7
+      - name: Send message to Slack \#random 
+        uses: "Ilshidur/action-slack@2.1.0"
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        with:
-          args: '{\"channel\":\"random\",\"text\":\"Hello world!\"}'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_TOKEN_RANDOM }}
+          VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
+          RELEASE_URL: ${{ format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', steps.get-next-version.outputs.new-release-version) }}
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
 
-      - name: Send message to Slack
+      - name: Send message to Slack \#general
         uses: "Ilshidur/action-slack@2.1.0"
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
