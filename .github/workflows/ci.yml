@@ -14,7 +14,7 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         with:
-          args: 'Incoming message :D'
+          args: 'Released **Wallet v1.9.0** to production! :rocket: \\n[Click here](https://google.bg) to see the release notes'
   # build:
   #   runs-on: ubuntu-latest
   #   steps:
