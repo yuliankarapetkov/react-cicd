@@ -1,3 +1,10 @@
+## [1.10.16](https://github.com/yuliankarapetkov/react-cicd/compare/v1.10.15...v1.10.16) (2022-06-29)
+
+
+### Bug Fixes
+
+* it ([860038d](https://github.com/yuliankarapetkov/react-cicd/commit/860038dccddb66e6098b85eb1b5893814f856a57))
+
 ## [1.10.15](https://github.com/yuliankarapetkov/react-cicd/compare/v1.10.14...v1.10.15) (2022-06-29)
 
 
