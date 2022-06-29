@@ -13,7 +13,7 @@ jobs:
         env:
           REPO: ${{ github.action_repository }}
         run: |
-          echo "REPO: ${REPO}"
+          echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
 
   # build:
   #   runs-on: ubuntu-latest
