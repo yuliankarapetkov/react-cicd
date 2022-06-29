@@ -36,7 +36,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Print outputs
-        run: echo ${{ join(steps.release.outputs.*, '\n') }}
+        run: echo ${{ steps.release.outputs }}
 
   # post-message:
   #   runs-on: ubuntu-latest
