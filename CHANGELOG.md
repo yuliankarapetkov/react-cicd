@@ -1,3 +1,10 @@
+## [1.10.9](https://github.com/yuliankarapetkov/react-cicd/compare/v1.10.8...v1.10.9) (2022-06-29)
+
+
+### Bug Fixes
+
+* use another channel ([96167fa](https://github.com/yuliankarapetkov/react-cicd/commit/96167fa97e23a2b1e881c674701da0a7bd6f43b3))
+
 ## [1.10.8](https://github.com/yuliankarapetkov/react-cicd/compare/v1.10.7...v1.10.8) (2022-06-29)
 
 
