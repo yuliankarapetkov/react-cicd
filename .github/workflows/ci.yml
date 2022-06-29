@@ -49,5 +49,7 @@ jobs:
         uses: "Ilshidur/action-slack@2.1.0"
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v1.9.0* to production! :rocket:\n<http://www.example.com|See release notes>\n${{ steps.get-next-version.outputs.new-release-version }}" }'
+          VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
+          RELEASE_URL: format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', VERSION)
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
   
