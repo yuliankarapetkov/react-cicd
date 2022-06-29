@@ -6,38 +6,41 @@ on:
     branches: [develop, master]
 
 jobs:
-  post-message:
+  build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+
+      - name: Setup Node version (16.x)
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # - name: Check formatting
+      #   run: npm run format:check
+
+      # - name: Run tests
+      #   run: npm run test -- --coverage
+      #   env:
+      #     CI: true
+
+      - name: Create release
+        id: release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # post-message:
+  #   runs-on: ubuntu-latest
+  #   steps:
       - name: Send message
         uses: "Ilshidur/action-slack@2.1.0"
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v1.9.0* to production! :rocket:\n<http://www.example.com|See release notes>" }'
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout branch
-  #       uses: actions/checkout@v2
-
-  #     - name: Setup Node version (16.x)
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: "16.x"
-
-  #     - name: Install dependencies
-  #       run: npm ci
-
-  #     # - name: Check formatting
-  #     #   run: npm run format:check
-
-  #     # - name: Run tests
-  #     #   run: npm run test -- --coverage
-  #     #   env:
-  #     #     CI: true
-
-  #     - name: Create release
-  #       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-  #       run: npx semantic-release
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v1.9.0* to production! :rocket:\n<http://www.example.com|See release notes>\n{{ steps.release.outputs }}" }'
+  
