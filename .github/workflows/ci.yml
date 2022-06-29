@@ -52,4 +52,4 @@ jobs:
           SLACK_CHANNEL: random
           VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
           RELEASE_URL: ${{ format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', steps.get-next-version.outputs.new-release-version) }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
+          SLACK_CUSTOM_PAYLOAD: '{ "channel": "random", "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
