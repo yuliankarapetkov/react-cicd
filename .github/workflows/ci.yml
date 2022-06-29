@@ -13,7 +13,7 @@ jobs:
         uses: "Ilshidur/action-slack@2.1.0"
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v1.9.0* to production! :rocket: \\n<http://www.example.com|Release notes>" }'
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v1.9.0* to production! :rocket:\n<http://www.example.com|Release notes>" }'
   # build:
   #   runs-on: ubuntu-latest
   #   steps:
