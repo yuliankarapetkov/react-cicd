@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print ref
-        run: echo ${{ github.action_repository }}
+        run: echo "$GITHUB_ACTION_REPOSITORY"
 
   # build:
   #   runs-on: ubuntu-latest
