@@ -45,7 +45,7 @@ jobs:
       - name: Send message to Slack
         uses: pullreminders/slack-action@v1.0.7
         env:
-          SLACK_BOT_TOKEN: xoxb-3729215731414-3748521183489-d0nyEfp5y5S4hllvcPlAUoYa
+          SLACK_BOT_TOKEN: xoxb-3729215731414-3748521183489-xoxb-3729215731414-3748521183489-MHlGGdtRao3Lg1TJXY6V2rvQ
         with:
           args: '{\"channel\":\"random\",\"text\":\"Hello world\"}'
 
@@ -53,7 +53,6 @@ jobs:
         uses: "Ilshidur/action-slack@2.1.0"
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_CHANNEL: #random
           VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
           RELEASE_URL: ${{ format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', steps.get-next-version.outputs.new-release-version) }}
-          SLACK_CUSTOM_PAYLOAD: '{ "channel": "#random", "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
