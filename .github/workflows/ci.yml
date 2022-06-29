@@ -45,7 +45,7 @@ jobs:
       - name: Send message to Slack
         uses: pullreminders/slack-action@v1.0.7
         env:
-          SLACK_BOT_TOKEN: xoxb-3729215731414-3748521183489-xoxb-3729215731414-3748521183489-MHlGGdtRao3Lg1TJXY6V2rvQ
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
         with:
           args: '{\"channel\":\"random\",\"text\":\"Hello world\"}'
 
