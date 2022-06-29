@@ -42,8 +42,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Print outputs
-        run: echo ${{ steps.release.outputs }}
+      - name: Send message to Slack
+        uses: pullreminders/slack-action@v1.0.7
+        env:
+          SLACK_BOT_TOKEN: xoxb-3729215731414-3748521183489-d0nyEfp5y5S4hllvcPlAUoYa
+        with:
+          args: '{\"channel\":\"random\",\"text\":\"Hello world\"}'
 
       - name: Send message to Slack
         uses: "Ilshidur/action-slack@2.1.0"
