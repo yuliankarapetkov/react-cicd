@@ -6,54 +6,60 @@ on:
     branches: [develop, master]
 
 jobs:
-  build:
+  print: 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v2
+      - name: Print ref
+        run: echo ${{ github.action_repository }}
 
-      - name: Setup Node version (16.x)
-        uses: actions/setup-node@v1
-        with:
-          node-version: "16.x"
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout branch
+  #       uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm ci
+  #     - name: Setup Node version (16.x)
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: "16.x"
 
-      # - name: Check formatting
-      #   run: npm run format:check
+  #     - name: Install dependencies
+  #       run: npm ci
 
-      # - name: Run tests
-      #   run: npm run test -- --coverage
-      #   env:
-      #     CI: true
+  #     # - name: Check formatting
+  #     #   run: npm run format:check
 
-      - name: Get next version
-        if: github.ref == 'refs/heads/master'
-        run: npx semantic-release --dry-run
-        id: get-next-version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     # - name: Run tests
+  #     #   run: npm run test -- --coverage
+  #     #   env:
+  #     #     CI: true
 
-      - name: Create release
-        id: release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     - name: Get next version
+  #       if: github.ref == 'refs/heads/master'
+  #       run: npx semantic-release --dry-run
+  #       id: get-next-version
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Send message to Slack \#random 
-        uses: "Ilshidur/action-slack@2.1.0"
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_TOKEN_RANDOM }}
-          VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
-          RELEASE_URL: ${{ format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', steps.get-next-version.outputs.new-release-version) }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
+  #     - name: Create release
+  #       id: release
+  #       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+  #       run: npx semantic-release
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Send message to Slack \#general
-        uses: "Ilshidur/action-slack@2.1.0"
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
-          RELEASE_URL: ${{ format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', steps.get-next-version.outputs.new-release-version) }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
+  #     - name: Send message to Slack \#random 
+  #       uses: "Ilshidur/action-slack@2.1.0"
+  #       env:
+  #         SLACK_WEBHOOK: ${{ secrets.SLACK_TOKEN_RANDOM }}
+  #         VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
+  #         RELEASE_URL: ${{ format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', steps.get-next-version.outputs.new-release-version) }}
+  #         SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
+
+  #     - name: Send message to Slack \#general
+  #       uses: "Ilshidur/action-slack@2.1.0"
+  #       env:
+  #         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+  #         VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
+  #         RELEASE_URL: ${{ format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', steps.get-next-version.outputs.new-release-version) }}
+  #         SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v{{ VERSION }}* to production! :rocket:\n<{{ RELEASE_URL }}|See release notes>" }'
