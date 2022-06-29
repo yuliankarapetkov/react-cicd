@@ -28,6 +28,13 @@ jobs:
       #   env:
       #     CI: true
 
+      - name: Get next version
+        if: github.ref == 'refs/heads/master'
+        run: npx semantic-release --dry-run
+        id: get-next-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create release
         id: release
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
@@ -38,12 +45,9 @@ jobs:
       - name: Print outputs
         run: echo ${{ steps.release.outputs }}
 
-  # post-message:
-  #   runs-on: ubuntu-latest
-  #   steps:
       - name: Send message
         uses: "Ilshidur/action-slack@2.1.0"
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v1.9.0* to production! :rocket:\n<http://www.example.com|See release notes>\n${{ steps.release.outputs }}" }'
+          SLACK_CUSTOM_PAYLOAD: '{ "text": "Released *Wallet v1.9.0* to production! :rocket:\n<http://www.example.com|See release notes>\n${{ steps.get-next-version.outputs.new-release-version }}" }'
   
