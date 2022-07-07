@@ -30,7 +30,7 @@ jobs:
       #     CI: true
 
       - name: Print diff
-        run: git log --pretty=format:%s origin/master..origin/fix-this
+        run: git log --pretty=format:%s master..fix-this
         env: 
           SHA: ${{ github.sha }}
 
