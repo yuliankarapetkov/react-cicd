@@ -39,7 +39,7 @@ jobs:
       #     CI: true
 
       - name: Print diff
-        run: git log --pretty=format:%s master..${{ SHA }}
+        run: git log --pretty=format:%s
         env: 
           SHA: ${{ github.sha }}
 
