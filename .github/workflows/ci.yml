@@ -12,14 +12,16 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+        run: |
+          git log --pretty=format:%s origin/master..origin/fix-this
 
-      - name: Setup Node version (16.x)
-        uses: actions/setup-node@v1
-        with:
-          node-version: "16.x"
+      # - name: Setup Node version (16.x)
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: "16.x"
 
-      - name: Install dependencies
-        run: npm ci
+      # - name: Install dependencies
+      #   run: npm ci
 
       # - name: Check formatting
       #   run: npm run format:check
@@ -29,16 +31,16 @@ jobs:
       #   env:
       #     CI: true
 
-      - name: Print diff
-        run: git log --pretty=format:%s origin/master..origin/fix-this
-        env: 
-          SHA: ${{ github.sha }}
+      # - name: Print diff
+      #   run: git log --pretty=format:%s origin/master..origin/fix-this
+      #   env: 
+      #     SHA: ${{ github.sha }}
 
-      - name: Send message to Slack \#general
-        uses: "Ilshidur/action-slack@2.1.0"
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
-          RELEASE_URL: ${{ format('https://github.com/{0}/releases/tag/v{1}', github.repository, steps.get-next-version.outputs.new-release-version) }}
-          # RELEASE_URL: ${{ format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', steps.get-next-version.outputs.new-release-version) }}
-          SLACK_CUSTOM_PAYLOAD: '{ "text": "Hello" }'
+      # - name: Send message to Slack \#general
+      #   uses: "Ilshidur/action-slack@2.1.0"
+      #   env:
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      #     VERSION: ${{ steps.get-next-version.outputs.new-release-version }}
+      #     RELEASE_URL: ${{ format('https://github.com/{0}/releases/tag/v{1}', github.repository, steps.get-next-version.outputs.new-release-version) }}
+      #     # RELEASE_URL: ${{ format('{0}{1}', 'https://github.com/yuliankarapetkov/react-cicd/releases/tag/v', steps.get-next-version.outputs.new-release-version) }}
+      #     SLACK_CUSTOM_PAYLOAD: '{ "text": "Hello" }'
