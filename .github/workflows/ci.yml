@@ -1,22 +1,26 @@
 name: CI
 on:
   push:
-    branches: [develop, master]
+    branches: [develop, master, fix-this]
 
 jobs:
 
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Print diff
-        env: 
-          SHA: ${{ github.sha }}
+      - name: Print
         run: |
-          git log --pretty=format:%s origin/master..origin/${GITHUB_HEAD_REF}
+          echo ${GITHUB_ACTION}
+
+      # - name: Checkout branch
+      #   uses: actions/checkout@v3
+      #   with:
+      #     fetch-depth: 0
+      # - name: Print diff
+      #   env: 
+      #     SHA: ${{ github.sha }}
+      #   run: |
+      #     git log --pretty=format:%s origin/master..origin/${GITHUB_HEAD_REF}
 
       # - name: Setup Node version (16.x)
       #   uses: actions/setup-node@v1
