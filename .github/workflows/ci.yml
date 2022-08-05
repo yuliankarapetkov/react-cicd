@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Print
         run: |
-          echo ${GITHUB_ACTION}
+          echo "GITHUB_ACTION: ${GITHUB_ACTION}"
 
       # - name: Checkout branch
       #   uses: actions/checkout@v3
