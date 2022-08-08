@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "Hello all!"
       - name: Hello develop -> staging
-        if: github.head_ref == 'refs/heads/develop' && github.base_ref == 'refs/heads/staging'
+        if: github.head_ref == 'develop' && github.base_ref == 'staging'
         run: |
           echo "Hello develop -> staging!"
           echo "It worked!"
