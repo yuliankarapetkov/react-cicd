@@ -4,6 +4,10 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
+      <p>
+        Random text ye
+      </p>
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
