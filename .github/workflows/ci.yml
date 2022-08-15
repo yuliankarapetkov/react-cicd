@@ -2,7 +2,7 @@ name: CI
 on:
   # push:
   #   branches: [develop, master, fix-this]
-  # comment
+  # just a comment
   pull_request:
     types:
       - closed
@@ -15,8 +15,19 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+      - name: Hello all
+        run: |
+          echo "Hello all!"
+      - name: Hello develop -> staging
+        if: github.head_ref == 'develop' && github.base_ref == 'staging'
+        run: |
+          echo "Hello develop -> staging!"
+          echo "It worked!"
+
       - name: Print
         run: |
+          echo "github.head_ref: ${{github.head_ref}}"
+          echo "github.base_ref: ${{github.base_ref}}"
           echo "CI: ${CI}"
           echo "GITHUB_ACTION: ${GITHUB_ACTION}"
           echo "GITHUB_ACTION_PATH: ${GITHUB_ACTION_PATH}"
