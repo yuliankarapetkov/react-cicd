@@ -2,6 +2,8 @@ name: CI
 on:
   # push:
   #   branches: [develop, master, fix-this]
+  # just a comment
+  # anotha one
   pull_request:
     types:
       - closed
