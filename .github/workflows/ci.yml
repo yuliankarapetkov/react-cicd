@@ -21,7 +21,6 @@ jobs:
           node-version: "16.x"
 
       - name: Cache dependencies
-        id: cache
         uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -29,7 +28,6 @@ jobs:
           restore-keys: npm-
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Run tests
